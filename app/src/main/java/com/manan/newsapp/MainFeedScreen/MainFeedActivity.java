@@ -24,23 +24,24 @@ public class MainFeedActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState );
-        setContentView(R.layout.activity_main_feed);
+        super.onCreate( savedInstanceState );
+        setContentView( R.layout.activity_main_feed );
 
         appLocationService = new AppLocationService(
-                MainFeedActivity.this);
+                MainFeedActivity.this );
+
 
         Location gpsLocation = appLocationService
-                .getLocation(LocationManager.GPS_PROVIDER);
+                .getLocation( LocationManager.GPS_PROVIDER );
         if (gpsLocation != null) {
             double latitude = gpsLocation.getLatitude();
             double longitude = gpsLocation.getLongitude();
             String result = "Latitude: " + gpsLocation.getLatitude() +
                     " Longitude: " + gpsLocation.getLongitude();
-            Log.d("Check1",result+"");
+            Log.d( "Check1", result + "" );
             LocationAddress locationAddress = new LocationAddress();
-            locationAddress.getAddressFromLocation(latitude, longitude,
-                    getApplicationContext(), new GeocoderHandler());
+            locationAddress.getAddressFromLocation( latitude, longitude,
+                    getApplicationContext(), new GeocoderHandler() );
         } else {
             showSettingsAlert();
         }
@@ -48,23 +49,23 @@ public class MainFeedActivity extends AppCompatActivity {
 
     public void showSettingsAlert() {
         AlertDialog.Builder alertDialog = new AlertDialog.Builder(
-                MainFeedActivity.this);
-        alertDialog.setTitle("SETTINGS");
-        alertDialog.setMessage("Enable Location Provider! Go to settings menu?");
-        alertDialog.setPositiveButton("Settings",
+                MainFeedActivity.this );
+        alertDialog.setTitle( "SETTINGS" );
+        alertDialog.setMessage( "Enable Location Provider! Go to settings menu?" );
+        alertDialog.setPositiveButton( "Settings",
                 new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
                         Intent intent = new Intent(
-                                Settings.ACTION_LOCATION_SOURCE_SETTINGS);
-                        MainFeedActivity.this.startActivity(intent);
+                                Settings.ACTION_LOCATION_SOURCE_SETTINGS );
+                        MainFeedActivity.this.startActivity( intent );
                     }
-                });
-        alertDialog.setNegativeButton("Cancel",
+                } );
+        alertDialog.setNegativeButton( "Cancel",
                 new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
                         dialog.cancel();
                     }
-                });
+                } );
         alertDialog.show();
     }
 
@@ -75,13 +76,13 @@ public class MainFeedActivity extends AppCompatActivity {
             switch (message.what) {
                 case 1:
                     Bundle bundle = message.getData();
-                    locationAddress = bundle.getString("address");
+                    locationAddress = bundle.getString( "address" );
                     break;
                 default:
                     locationAddress = null;
             }
-            Log.d("Country",locationAddress+"");
-            COUNTRY_CODE= locationAddress+"";
+            Log.d( "Country", locationAddress + "" );
+            COUNTRY_CODE = locationAddress + "";
 //
         }
     }
