@@ -9,17 +9,19 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.manan.newsapp.Model.RemoteServices.DataModelClasses.ArticleData;
+import com.manan.newsapp.Model.DataModelClasses.ArticleData;
 import com.manan.newsapp.R;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class ArticlesTileAdapter extends RecyclerView.Adapter<ArticlesTileAdapter.MyViewHolder> {
 
-    private ArrayList<ArticleData> articleDataArrayList;
+    private List<ArticleData> articleDataArrayList;
     private Context context;
 
-    public ArticlesTileAdapter(ArrayList<ArticleData> articleDataArrayList, Context context) {
+    public ArticlesTileAdapter(List<ArticleData> articleDataArrayList, Context context) {
         this.articleDataArrayList = articleDataArrayList;
         this.context = context;
     }
@@ -52,10 +54,11 @@ public class ArticlesTileAdapter extends RecyclerView.Adapter<ArticlesTileAdapte
     @Override
     public void onBindViewHolder(@NonNull ArticlesTileAdapter.MyViewHolder myViewHolder, int i) {
          myViewHolder.tvTitle.setText(articleDataArrayList.get(i).getTitle()+"");
-         myViewHolder.tvCat.setText(articleDataArrayList.get(i).getSourceName()+"");
+         myViewHolder.tvCat.setText(articleDataArrayList.get(i).getSource()+"");
          myViewHolder.tvDesc.setText(articleDataArrayList.get(i).getTitle()+"");
-         myViewHolder.tvSource.setText(articleDataArrayList.get(i).getSourceName()+"");
+         myViewHolder.tvSource.setText(articleDataArrayList.get(i).getSource()+"");
          myViewHolder.tvDate.setText(articleDataArrayList.get(i).getPublishedAt()+"");
+        Picasso.get().load( articleDataArrayList.get( i ).getUrlToImage() ).into( myViewHolder.ivBack );
        //  myViewHolder.ivBack.setText(articleDataArrayList.get(i).getUrlToImag+""e());
 
 

@@ -1,6 +1,6 @@
 package com.manan.newsapp.Model.RemoteServices;
 
-import com.manan.newsapp.Model.RemoteServices.DataModelClasses.NewsResponseModel;
+import com.manan.newsapp.Model.DataModelClasses.NewsResponseModel;
 
 import retrofit2.Call;
 import retrofit2.http.GET;

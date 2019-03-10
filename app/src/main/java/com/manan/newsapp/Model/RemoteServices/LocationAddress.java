@@ -28,11 +28,10 @@ public class LocationAddress {
                     if (addressList != null && addressList.size() > 0) {
                         Address address = addressList.get(0);
                         StringBuilder sb = new StringBuilder();
-                        for (int i = 0; i < address.getMaxAddressLineIndex(); i++) {
-                            sb.append(address.getAddressLine(i)).append("\n");
-                        }
+
                         sb.append(address.getCountryCode());
                         result = sb.toString();
+                        Log.d("result",result);
                     }
                 } catch (IOException e) {
                     Log.e(TAG, "Unable connect to Geocoder", e);
@@ -43,15 +42,12 @@ public class LocationAddress {
                     if (result != null) {
                         message.what = 1;
                         Bundle bundle = new Bundle();
-                        result = "Latitude: " + latitude + " Longitude: " + longitude +
-                                "\n\nAddress:\n" + result;
                         bundle.putString("address", result);
                         message.setData(bundle);
                     } else {
                         message.what = 1;
                         Bundle bundle = new Bundle();
-                        result = "Latitude: " + latitude + " Longitude: " + longitude +
-                                "\n Unable to get address for this lat-long.";
+                        result = "IN";
                         bundle.putString("address", result);
                         message.setData(bundle);
                     }

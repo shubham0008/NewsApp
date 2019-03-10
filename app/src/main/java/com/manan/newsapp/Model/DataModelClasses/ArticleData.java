@@ -1,54 +1,61 @@
-package com.manan.newsapp.Model.RemoteServices.DataModelClasses;
+package com.manan.newsapp.Model.DataModelClasses;
+
+import android.arch.persistence.room.ColumnInfo;
+import android.arch.persistence.room.Entity;
+import android.arch.persistence.room.Ignore;
+import android.arch.persistence.room.PrimaryKey;
 
 import com.google.gson.annotations.SerializedName;
 
+@Entity(tableName = "tb_articles")
 public class ArticleData {
 
+    @PrimaryKey(autoGenerate = true)
+    private int aid;
+
+    @Ignore
+    @ColumnInfo(name = "source")
     @SerializedName("source")
     Source source;
+
+    @ColumnInfo(name = "author")
     @SerializedName("author")
     String author;
+
+    @ColumnInfo(name = "title")
     @SerializedName("title")
     String title;
+
+    @ColumnInfo(name = "description")
     @SerializedName("description")
     String description;
+
+    @ColumnInfo(name = "url")
     @SerializedName("url")
     String url;
+
+    @ColumnInfo(name = "urlToImage")
     @SerializedName("urlToImage")
     String urlToImage;
+
+    @ColumnInfo(name = "publishedAt")
     @SerializedName("publishedAt")
     String publishedAt;
+
+    @ColumnInfo(name = "content")
     @SerializedName("content")
     String content;
 
-    private class Source {
-        @SerializedName("id")
-        String id;
 
-        @SerializedName("name")
-        String name;
+    public ArticleData() {
+    }
 
-        public Source(String id, String name) {
-            this.id = id;
-            this.name = name;
-        }
+    public int getAid() {
+        return aid;
+    }
 
-
-        public String getId() {
-            return id;
-        }
-
-        public void setId(String id) {
-            this.id = id;
-        }
-
-        public String getName() {
-            return name;
-        }
-
-        public void setName(String name) {
-            this.name = name;
-        }
+    public void setAid(int aid) {
+        this.aid = aid;
     }
 
     public ArticleData(Source source, String author, String title, String description, String url, String urlToImage, String publishedAt, String content) {
@@ -62,6 +69,7 @@ public class ArticleData {
         this.content = content;
     }
 
+
     public Source getSource() {
         return source;
     }
@@ -69,9 +77,7 @@ public class ArticleData {
     public void setSource(Source source) {
         this.source = source;
     }
-    public String getSourceName() {
-        return source.getName();
-    }
+
     public String getAuthor() {
         return author;
     }
