@@ -54,10 +54,10 @@ public class ArticlesTileAdapter extends RecyclerView.Adapter<ArticlesTileAdapte
     @Override
     public void onBindViewHolder(@NonNull ArticlesTileAdapter.MyViewHolder myViewHolder, int i) {
          myViewHolder.tvTitle.setText(articleDataArrayList.get(i).getTitle()+"");
-         myViewHolder.tvCat.setText(articleDataArrayList.get(i).getSource()+"");
+         myViewHolder.tvCat.setText(articleDataArrayList.get(i).getSource().getName()+"");
          myViewHolder.tvDesc.setText(articleDataArrayList.get(i).getTitle()+"");
-         myViewHolder.tvSource.setText(articleDataArrayList.get(i).getSource()+"");
-         myViewHolder.tvDate.setText(articleDataArrayList.get(i).getPublishedAt()+"");
+         myViewHolder.tvSource.setText(articleDataArrayList.get(i).getAuthor()+"");
+         myViewHolder.tvDate.setText(articleDataArrayList.get(i).getPublishedAt().substring( 0,10 )+"");
         Picasso.get().load( articleDataArrayList.get( i ).getUrlToImage() ).into( myViewHolder.ivBack );
        //  myViewHolder.ivBack.setText(articleDataArrayList.get(i).getUrlToImag+""e());
 
@@ -67,6 +67,11 @@ public class ArticlesTileAdapter extends RecyclerView.Adapter<ArticlesTileAdapte
     @Override
     public int getItemCount() {
         return articleDataArrayList.size();
+    }
+
+    public List<ArticleData> getArticleDataArrayList()
+    {
+        return  articleDataArrayList;
     }
 
 

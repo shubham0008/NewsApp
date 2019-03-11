@@ -6,6 +6,7 @@ import android.arch.persistence.room.RoomDatabase;
 import android.content.Context;
 
 import com.manan.newsapp.Model.DataModelClasses.ArticleData;
+import com.manan.newsapp.Model.DataModelClasses.Source;
 
 @Database(entities = {ArticleData.class}, version = 1)
 public abstract class AppDatabase extends RoomDatabase {

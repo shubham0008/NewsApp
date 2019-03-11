@@ -2,4 +2,5 @@
     <string name="app_name">NewsApp</string>
     <string name="api_auth_key">d5b78007787e40c499c235ea5ac184cd</string>
     <string name="dummy">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using</string>
+    <string name="channel_name">channel_news</string>
 </resources>

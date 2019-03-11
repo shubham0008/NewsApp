@@ -1,6 +1,7 @@
 package com.manan.newsapp.Model.DataModelClasses;
 
 import android.arch.persistence.room.ColumnInfo;
+import android.arch.persistence.room.Embedded;
 import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.Ignore;
 import android.arch.persistence.room.PrimaryKey;
@@ -13,8 +14,8 @@ public class ArticleData {
     @PrimaryKey(autoGenerate = true)
     private int aid;
 
-    @Ignore
-    @ColumnInfo(name = "source")
+
+    @Embedded
     @SerializedName("source")
     Source source;
 
@@ -58,7 +59,8 @@ public class ArticleData {
         this.aid = aid;
     }
 
-    public ArticleData(Source source, String author, String title, String description, String url, String urlToImage, String publishedAt, String content) {
+    public ArticleData(int aid, Source source, String author, String title, String description, String url, String urlToImage, String publishedAt, String content) {
+        this.aid = aid;
         this.source = source;
         this.author = author;
         this.title = title;
@@ -68,7 +70,6 @@ public class ArticleData {
         this.publishedAt = publishedAt;
         this.content = content;
     }
-
 
     public Source getSource() {
         return source;

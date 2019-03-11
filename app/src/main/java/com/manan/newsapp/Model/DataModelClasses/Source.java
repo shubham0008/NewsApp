@@ -2,16 +2,20 @@ package com.manan.newsapp.Model.DataModelClasses;
 
 import android.arch.persistence.room.ColumnInfo;
 import android.arch.persistence.room.Dao;
+import android.arch.persistence.room.Embedded;
+import android.arch.persistence.room.Entity;
+import android.arch.persistence.room.PrimaryKey;
 
 import com.google.gson.annotations.SerializedName;
 
-@Dao
+
 public class Source {
-    @ColumnInfo(name = "id")
+    @Embedded
     @SerializedName("id")
     String id;
 
-    @ColumnInfo(name = "name")
+
+    @Embedded
     @SerializedName("name")
     String name;
 
