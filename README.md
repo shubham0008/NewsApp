@@ -2,12 +2,12 @@
 An app which suggest trending news along with search and filter by date functionality
 
 ### Features
-* 1. Location based news<br /> 
-* 2. Search Feature<br />
-* 3. Show news based on the user's location.<br />
-* 4. Allow users to search through the news from the feed.<br />
-* 5. Store the news offline<br />
-* 6. Everyday show a notification with a trending news to the user(In every 4 hour)<br />
+*  Location based news<br /> 
+*  Search Feature<br />
+*  Show news based on the user's location.<br />
+*  Allow users to search through the news from the feed.<br />
+*  Store the news offline<br />
+*  Everyday show a notification with a trending news to the user(In every 4 hour)<br />
 
 
 ## App Screenshots
